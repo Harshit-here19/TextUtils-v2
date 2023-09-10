@@ -5,11 +5,6 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import AlertDis from './components/AlertDis';
-import {
-  BrowserRouter,
-  Route,
-  Routes
-} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light'); //Whether Dark Mode is enabled or not
@@ -106,21 +101,13 @@ function App() {
   
   return (
     <>
-    <BrowserRouter>
 
       <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} textHand={textHand} green={handleGreen} orange={handleOrange} red={handleRed} white={handleWhite}/>
       <AlertDis alert={alert} />
       <div className="container my-3">
-        <Routes>
-              <Route exact path="/about" element={<About myStyle={myStyle} />}>           
-              </Route>
-              
-              <Route exact path="/" element={<TextForm heading="Text Analyzer" myStyle={myStyle} showAlert={showAlert} />}>
-              </Route>
-        </Routes>
+          <TextForm heading="Text Analyzer" myStyle={myStyle} showAlert={showAlert} />
       </div>
       
-    </BrowserRouter>
     </>
   );
 }
